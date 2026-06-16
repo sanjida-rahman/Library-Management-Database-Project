@@ -1,0 +1,52 @@
+/* insertion in member table */
+
+INSERT INTO member (mem_id, full_name, password, email, address, phone)
+VALUES (12345, 'Sanjida', 'mypassword', 'sanjida@example.com', '123 Cornelia St', '55512345678');
+
+INSERT INTO member (mem_id, full_name, password, email, address, phone)
+VALUES (23456, 'Nihima', 'mypassword', 'nihima@example.com', '134 Main St', '12512345678');
+
+INSERT INTO member (mem_id, full_name, password, email, address, phone)
+VALUES (34567, 'Sayeed', 'mypassword', 'sayeed@example.com', '123 Main St', '89812345678');
+
+/* insertion in admin table */
+INSERT INTO admin (admin_id, full_name, password)
+VALUES (54321, 'Admin1', 'adminpass');
+INSERT INTO admin (admin_id, full_name, password)
+VALUES (65432, 'Admin2', 'passward');
+INSERT INTO admin (admin_id, full_name, password)
+VALUES (76543, 'Admin3', 'adminpswd');
+
+/* insertion in publisher_info table */
+INSERT INTO publisher_info (publisher_id, publisher_name)
+VALUES (1234567890, 'Example Publisher');
+INSERT INTO publisher_info (publisher_id, publisher_name)
+VALUES (9876543210, 'Another Publisher');
+INSERT INTO publisher_info (publisher_id, publisher_name)
+VALUES (5555555555, 'Yet Another Publisher');
+
+/* insertion in book_info table */
+
+INSERT INTO book_info (book_id, book_name, author_name, publisher_id, genre, date_of_publish, price)
+VALUES (1111111111, 'First Book', 'Author One', 1234567890, 'Fiction', '2023-01-01', '29.99');
+INSERT INTO book_info (book_id, book_name, author_name, publisher_id, genre, date_of_publish, price)
+VALUES (2222222222, 'Second Book', 'Author Two', 9876543210, 'Non-Fiction', '2023-02-15', '39.99');
+INSERT INTO book_info (book_id, book_name, author_name, publisher_id, genre, date_of_publish, price)
+VALUES (3333333333, 'Third Book', 'Author Three', 5555555555, 'Mystery', '2023-03-30', '24.99');
+
+
+/* insertion in book_issue table */
+
+INSERT INTO book_issue (book_id, mem_id, admin_id, date_of_issue)
+VALUES (1111111111, 12345, 54321, '2023-04-01');
+INSERT INTO book_issue (book_id, mem_id, admin_id, date_of_issue)
+VALUES (2222222222, 23456, 65432, '2023-04-10');
+INSERT INTO book_issue (book_id, mem_id, admin_id, date_of_issue)
+VALUES (3333333333, 34567, 76543, '2023-04-20');
+
+
+select * from member;
+select * from admin;
+select * from publisher_info;
+select * from book_info;
+select * from book_issue;
