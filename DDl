@@ -1,0 +1,44 @@
+set pagesize 100
+set linesize 200
+drop table member;
+create table member(
+ mem_id number(5) check(length(mem_id)=5) not null primary key,
+   full_name varchar(50) not null,
+    password varchar(20) check(length(password)>=6) not null,
+    email varchar(50) unique not null,
+    address varchar(50),
+    phone varchar(11) check(length(phone)=11) not null
+    );
+drop table admin;
+create table admin
+(  admin_id number(5) check(length(admin_id)=5) not null primary key,
+full_name varchar(50) not null,
+password varchar(20) check(length(password)>=6) not null
+);
+drop table publisher_info;
+create table publisher_info
+(   publisher_id number(10) check(length(publisher_id)=10) not null primary key,
+publisher_name varchar(50) not null
+);
+
+drop table book_info;
+create table book_info
+(   book_id number(10) check(length(book_id)=10) not null primary key,
+book_name varchar(50) not null,
+author_name varchar(50) not null,
+publisher_id number(10) check(length(publisher_id)=10) not null,
+genre varchar(50) not null,
+date_of_publish varchar(50) not null,
+price varchar(20) not null,
+foreign key(publisher_id) references publisher_info(publisher_id ) on delete cascade);
+
+drop table book_issue;
+create table book_issue
+(  book_id number(10) check(length(book_id)=10) not null ,
+mem_id number(5) check(length(mem_id)=5) not null ,
+admin_id number(5) check(length(admin_id)=5) not null ,
+date_of_issue varchar(50) not null,
+foreign key(book_id ) references book_info (book_id ) on delete cascade,
+foreign key(mem_id ) references member(mem_id ) on delete cascade,
+foreign key(admin_id ) references admin (admin_id ) on delete cascade
+);
